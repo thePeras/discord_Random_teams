@@ -83,11 +83,13 @@ module.exports = async (team, color) => {
     });
 
     await browser.close();
+
+    return imageBuffer
+
     }catch (e) {
       console.log("Try Error", e)
     }
 
     //console.log(imageBuffer)
     
-    return imageBuffer
 }
