@@ -63,7 +63,7 @@ module.exports = async (team, color) => {
     try {
 
     const browser = await puppeteer.launch({
-      executablePath: '/usr/bin/chromium-browser',
+      ignoreDefaultArgs: ['--disable-extensions'],
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const page = await browser.newPage();
