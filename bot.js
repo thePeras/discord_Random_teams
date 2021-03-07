@@ -44,7 +44,8 @@ client.on('message', async message => {
     let second_team = []
     
     //return if no voice channel was finded
-    if(Object.keys(channel_members).length === 0) return message.channel.send("Precisas de estar num canal de voz")
+    //if(Object.keys(channel_members).length === 0) return message.channel.send("Precisas de estar num canal de voz")
+    
     //insert members to player
     for(let [key, member] of channel_members){
       if(!blacklist.has(key.toString())) players.push(member)

@@ -7,5 +7,4 @@ module.exports = (channels, author) => {
             }
         }
     }
-    return {}
 }
