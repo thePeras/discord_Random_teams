@@ -1,4 +1,4 @@
-const nodeHtmlToImage = require('node-html-to-image')
+const puppeteer = require('puppeteer')
 
 exports.generateImage = async (team, color) => {
 
@@ -58,19 +58,27 @@ exports.generateImage = async (team, color) => {
     
     HTML_TEMPLATE += '</body></html>'
 
-    console.log(HTML_TEMPLATE)
+    //console.log(HTML_TEMPLATE)
+    
+    const browser = await puppeteer.launch({
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    });
+    const page = await browser.newPage();
+    await page.setContent( HTML_TEMPLATE );
+    const example = await page.$('body');
+    const boundingBox = await example.boundingBox();
 
-    let image = await nodeHtmlToImage({
-        html: HTML_TEMPLATE,
-        quality: 100,
-        type: 'jpeg',
-        puppeteerArgs: {
-          args: ['--no-sandbox'],
-        },
-        encoding: 'buffer',
-    })
+    const imageBuffer = await example.screenshot({
+      type: 'jpeg',
+      quality: 100,
+      clip: {
+        x: 0,
+        y: 0,
+        width: boundingBox.width,
+        height: boundingBox.height
+      }
+    });
+    console.log(imageBuffer)
+    return imageBuffer
 
-    console.log(image)
-
-    return image
 }

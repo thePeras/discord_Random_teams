@@ -6,11 +6,11 @@ const client = new Discord.Client();
 
 //consts
 const prefix = '_random'
-const blacklist = new Set(['201503408652419073', '235088799074484224'])
+const blacklist = new Set([]) //235088799074484224 e 201503408652419073
 
 client.once('ready', () => {
     console.log("bot online!")
-    //for(let [key, user] of client.users.cache) console.log(`id: ${key} username: ${user.username}`)
+    for(let [key, user] of client.users.cache) console.log(`id: ${key} username: ${user.username}`)
 })
 client.on('message', async message => {
     if(!message.content.startsWith(prefix) || message.author.bot) return
