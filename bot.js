@@ -55,7 +55,7 @@ client.on('message', async message => {
     
     //shuffle and spliting the teams
     let shufflePlayer = shuffle(players)
-    const half = Math.trunc(channel.members.size / 2);
+    const half = Math.trunc(channel_members.size / 2);
     first_team = shufflePlayer.splice(0, half)
     second_team = shufflePlayer.splice(-half)
     
