@@ -60,8 +60,10 @@ module.exports = async (team, color) => {
     HTML_TEMPLATE += '</body></html>'
 
     //console.log(HTML_TEMPLATE)
-    
+    try {
+
     const browser = await puppeteer.launch({
+      executablePath: '/usr/bin/chromium-browser',
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const page = await browser.newPage();
@@ -79,7 +81,12 @@ module.exports = async (team, color) => {
         height: boundingBox.height
       }
     });
-    
+
+    await browser.close();
+    }catch (e) {
+      console.log("Try Error", e)
+    }
+
     //console.log(imageBuffer)
     
     return imageBuffer
