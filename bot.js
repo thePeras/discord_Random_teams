@@ -72,6 +72,8 @@ client.on('message', async message => {
     let image1 = await generateImage(first_team, '#f7a310')
     let image2 = await generateImage(second_team, '#f7a310')
     
+    if(!image1 || !image2) return message.channel.send("Não deu para renderizar as fotos") 
+
     //attachs users image and fields
     team_1_text.attachFiles([{name: "image.jpeg", attachment: image1}])
     team_1_text.setImage('attachment://image.jpeg');

@@ -63,8 +63,8 @@ module.exports = async (team, color) => {
     try {
 
     const browser = await puppeteer.launch({
-      ignoreDefaultArgs: ['--disable-extensions'],
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      headless: true,
+      args: ['--no-sandbox'],
     });
     const page = await browser.newPage();
     await page.setContent( HTML_TEMPLATE );
@@ -82,14 +82,10 @@ module.exports = async (team, color) => {
       }
     });
 
-    await browser.close();
-
     return imageBuffer
 
     }catch (e) {
       console.log("Try Error", e)
+      return false
     }
-
-    //console.log(imageBuffer)
-    
 }
