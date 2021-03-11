@@ -17,6 +17,7 @@ let tittle_2 = 'Equipa 2'
 const Discord = require('discord.js')
 const client = new Discord.Client();
 
+
 client.once('ready', () => {
     console.log("bot online!")    
     //console all server users
