@@ -139,6 +139,9 @@ client.on('messageReactionAdd', async (reaction, user) => {
   //clear teams
   first_team = []
   second_team = []
+
+  //edit message
+  setTimeout(()=>{reaction.message.edit("Bom jogo!")}, 500)
 });
 
 client.login(process.env.BOT_TOKEN)
