@@ -3,9 +3,12 @@
 This project is a discord bot that split the members of a voice channel.
 The members are splited in two teams, random generated.
 
+## How it works
+Simple, just write _random on a message channel and the bot will run
+
 # History
 
-The project come to a head when me and my frinds wanted to play some games but actually we were more than a team required. 
+The project come to my head when me and my frinds wanted to play some games but actually we were more than a team required. 
 So we usually slipt us in half.
 We used a web tool to do it, but it required to much time.
 Because time is money, this bot doesn't give you money but less work.
