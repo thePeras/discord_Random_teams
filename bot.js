@@ -62,7 +62,7 @@ client.on('message', async message => {
     let shufflePlayer = shuffle(players)
     const half = Math.trunc(channel_members.size / 2);
     first_team = shufflePlayer.splice(0, half)
-    second_team = shufflePlayer.splice(-half)
+    second_team = shufflePlayer.splice(half, channel_members.size)
     
     //create the embed text
     let team_1_text = new Discord.MessageEmbed()
